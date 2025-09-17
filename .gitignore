@@ -31,4 +31,10 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-node_modules
+
+# 忽略 macOS や node_modules などの不要ファイル
+node_modules/
+.DS_Store
+
+# 無視してよい一時的なローカルリポジトリフォルダ
+task7_RubyOnRails2.git/
