@@ -1,0 +1,46 @@
+<div class="new_create_container">
+  <div class="announce"><p>新規登録</p></div>
+    <%= form_with model: @user ,local: true do |f| %>
+
+    <div class="view_label">
+      <%= f.label :user_name  ,"ユーザー名※" %><br>
+      <%= f.text_field :user_name ,class: 'input_user_box' %>
+        <% if @user.errors.any? %>
+         <div class="error"><%= @user.errors[:user_name].first %></div>
+        <% end %>
+    </div>
+
+    <div class="view_label">
+      <%= f.label :email ,"メールアドレス※" %><br>
+      <%= f.email_field :email ,class: 'input_user_box' %>
+        <% if @user.errors.any? %>
+          <div class="error"><%= @user.errors[:email].first %></div>
+        <% end %>
+    </div>
+
+    <div class="view_label">
+      <%= f.label :password, "パスワード※" %><br>
+      <%= f.password_field :password ,class: 'input_user_box' %>
+        <% if @user.errors.any? %>
+          <div class="error"><%= @user.errors[:password].first %></div>
+        <% end %>
+    </div>
+
+    <div class="view_label">
+      <%= f.label :password_confirmation, "確認用パスワード※" %><br>
+      <%= f.password_field :password_confirmation ,class: 'input_user_box' %>
+        <% if @user.errors.any? %>
+          <div class="error"><%= @user.errors[:password_confirmation].first %></div>
+        <% end %>
+    </div>
+
+    <div class="view_new_button">
+      <%= f.submit "新しいアカウントを作成" ,class: 'push_first_button' %>
+    </div>
+    <% end %>
+
+    <div class="view_login_button">
+      <%= link_to "アカウントをお持ちの方はこちら", login_path, class:'push_secound_button' %>
+    </div>
+
+</div>

@@ -1,0 +1,23 @@
+<div class="new_create_container">
+  <div class="announce"><p>ログイン</p></div>
+    <%= form_with url: login_path, method: :post, local: true do|f| %>
+
+    <div class="view_label">
+      <%= f.label :email ,"メールアドレス※" %><br>
+      <%= f.text_field :email ,class: 'input_user_box' %>
+    </div>
+
+    <div class="view_label">
+      <%= f.label :password, "パスワード※" %><br>
+      <%= f.password_field :password ,class: 'input_user_box' %>
+    </div>
+
+    <div class="view_new_button">
+      <%= f.submit "ログイン" ,class: 'push_first_button' %>
+    </div>
+    <% end %>
+
+    <div class="view_login_button">
+      <%= link_to "新しいアカウントを作成", :new_user, class:'push_secound_button' %>
+    </div>
+</div>

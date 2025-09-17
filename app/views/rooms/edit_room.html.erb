@@ -1,0 +1,60 @@
+<div class="show_wapper_container">
+
+<%= render 'layouts/user_account_menu' %>
+
+<div class="show_account_container">
+  
+  <div class="profile_titlle"><h2>施設名</h2></div>
+  
+    <div class="flash_notice"><%= flash[:alert] %></div>
+
+  <%= form_with model: @room, local: true do |f| %>
+  <table class="current_user_table">
+    <tbody>
+      <tr>
+        <td><%= f.label :roomimage ,"施設画像" %></td>
+        <td>
+          <% if @room.roomimage.attached? %>
+            <%= image_tag @room.roomimage.variant(resize_to_limit: [157, 157]) %><br>
+          <% end %>
+        </td>
+        <td>
+          <%= f.file_field :roomimage %>
+        </td>
+      </tr>
+      
+      <tr>
+        <td><%= f.label :room_name ,"施設名" %></td>
+        <td><%= f.text_field :room_name  %></td>
+      </tr>
+      
+      <tr>
+        <td><%= f.label :room_details ,"施設紹介文" %></td>
+        <td><%= f.text_field :room_details %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :room_rate ,"料金(1泊)" %></td>
+        <td><%= f.number_field :room_rate %></td>
+      </tr>
+
+      <tr>
+        <td><%= f.label :facility_address ,"住所" %></td>
+        <td><%= f.text_field :facility_address %></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="select_item_wapper">
+    <div class="update_user_info">
+      <button class="update">保存</button>
+    </div>
+ <% end %>
+  <div class="edit_canncel_button">
+      <button class="canncel"><%= link_to "キャンセル", request.referer %></button>
+  </div>
+
+  </div>
+
+</div>

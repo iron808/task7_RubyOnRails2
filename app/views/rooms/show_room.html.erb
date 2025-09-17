@@ -1,0 +1,47 @@
+<div class="show_account_container">
+  
+  <% if flash[:notice] %>
+    <div class="flash_notice" id="flash_notice"><%= flash[:notice] %></div>
+  <% end %>
+
+  <div class="profile_titlle"><h2>施設詳細</h2></div>
+  <table class="current_user_table">
+    <tbody>
+      <tr>
+        <td>施設写真</td>
+        <td>
+          <%= image_tag(@room.roomimage.attached? ? @room.roomimage.variant(resize_to_limit: [114, 76]) : "default-myroom.png", alt: "施設写真") %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          施設名
+        </td>
+        <td>
+          <%= @room.room_name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          施設紹介文
+        </td>
+        <td>
+          <%= @room.room_details %>
+        </td>
+       <tr>
+        <td>
+          宿泊料金(1泊)
+        </td>
+        <td>
+          <span class="room" data-room-rate="<%= @room.room_rate.to_f %>"></span>
+          <span class="convert_rate"><%= @room.room_rate %></span>
+        </td>
+       </tr>
+    </tbody>
+  </table>
+
+    <div class="back_button">
+      <button class="back"><%= link_to "一つ前に戻る", show_user_facility_room_path(@room) %></button>
+    </div>
+
+</div>

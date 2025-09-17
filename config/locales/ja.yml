@@ -1,0 +1,42 @@
+ja:
+  number:
+    currency:
+      format:
+        unit: "¥"
+        format: "%n%u"
+        negative_format: "-%n%u"
+        precision: 0
+
+  errors:
+    messages:
+      invalid: "%{attribute}が正しくありません"
+      blank: "%{attribute}を入力してください"
+      invalid: "は無効です"
+      too_short: "パスワードは8文字以上24文字以内で入力してください"
+
+  activerecord:
+    attributes:
+      user:
+        user_name: "ユーザー名"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+      room:
+        room_name: "施設名"
+        room_details: "施設詳細"
+        room_rate: "宿泊料金(1泊)"
+        facility_address: "施設住所"
+      reservation:
+        checkin_day: "チェックイン日"
+        checkout_day: "チェックアウト日"
+        number_of_guests: "宿泊人数"
+    errors:
+      models:
+        reservation:
+          attributes:
+            checkin_day:
+              blank: "チェックイン日を入力してください"
+            checkout_day:
+              blank: "チェックアウト日を入力してください"
+            number_of_guests:
+              blank: "宿泊人数を入力してください"

@@ -1,0 +1,38 @@
+<div class="show_wapper_container">
+
+<%= render 'layouts/user_account_menu' %>
+
+<div class="show_account_container">
+  
+  <% if flash[:notice] %>
+    <div class="flash_notice" id="flash_notice"><%= flash[:notice] %></div>
+  <% end %>
+
+    <div class="linkto_top">
+      <%= link_to "← TOPに戻る", root_path %>
+    </div>
+
+  <div class="profile_titlle"><h2>プロフィール</h2></div>
+
+  <table class="current_user_table">
+    <tbody>
+      <tr>
+        <td>マイアイコン</td>
+        <td><%= image_tag(@user.avatar.attached? ? @user.avatar.variant(resize_to_limit: [157, 157]) : "default-myicon.png", alt: "マイアイコン") %></td>
+      </tr>
+      <tr>
+        <td>名前</td>
+        <td><%= @user.user_name %></td>
+      </tr>
+      <tr>
+        <td>自己紹介</td>
+        <td><%= @user.user_introduce %></td>
+      </tr>
+    </tbody>
+  </table>
+
+    <div class="edit_link_button">
+      <%= image_pack_tag 'pencil.svg', alt: '鉛筆マーク', class:'pencil_img'%><%= link_to "プロフィール編集", edit_profile_user_path(current_user), class:'edit_user_account' %>
+    </div>
+
+</div>
