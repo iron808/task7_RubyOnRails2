@@ -1,0 +1,73 @@
+<div class="show_wapper_container">
+
+<%= render 'layouts/user_account_menu' %>
+
+<div class="show_account_container">
+  <div class="profile_titlle"><h2>アカウント</h2></div>
+  
+    <div class="flash_notice"><%= flash[:alert] %></div>
+
+  <%= form_with model: @user, url: update_account_user_path(@user), local: true do |f| %>
+  <table class="current_user_table">
+    <tbody>
+      <tr>
+        <td>
+          <%= f.label :email ,"メールアドレス" %>
+        </td>
+        <td>
+          <%= f.text_field :email %>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <%= f.label :password do %>
+          変更後パスワード<br>
+          <span class="span_label_deco">※変更する場合のみ</span>
+          <% end %>
+        </td>
+        <td>
+          <%= f.password_field :password  %>
+            <% if @user.errors.any? %>
+            <div class="error"><%= @user.errors[:password].first %></div>
+            <% end %>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <%= f.label :password_confirmation  do %>
+          変更後パスワード再入力<br>
+            <span class="span_label_deco">※変更する場合のみ</span>
+          <% end %>
+        </td>
+        <td>
+          <%= f.password_field :password_confirmation %>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <%= f.label :current_password do %>
+          現在のパスワード<span class="span_label_deco">※</span>
+          <% end %>
+        </td>
+        <td>
+          <%= f.password_field :current_password %>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="select_item_wapper">
+    <div class="update_user_info">
+      <button class="update">保存</button>
+    </div>
+ <% end %>
+     <div class="edit_canncel_button">
+      <button class="canncel"><%= link_to "キャンセル", show_account_user_path(current_user) %></button>
+    </div>
+   </div>
+
+</div>

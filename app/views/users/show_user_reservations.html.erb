@@ -1,0 +1,68 @@
+  <div class="show_account_container">
+  
+    <% if flash[:notice] %>
+      <div class="flash_notice" id="flash_notice"><%= flash[:notice] %></div>
+    <% end %>
+
+    <div class="linkto_top">
+      <%= link_to "← TOPに戻る", root_path %>
+    </div>
+
+    <div class="profile_titlle">
+      <h2>施設一覧</h2>
+    </div>
+    <table>
+  <thead>
+    <tr>
+      <th>施設写真</th>
+      <th>施設名</th>
+      <th>施設紹介文</th>
+      <th>お支払金額</th>
+      <th>チェックイン</th>
+      <th>チェックアウト</th>
+      <th>予約確定日時</th>
+      <th>編集</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td>
+          <% if reservation.room.roomimage.attached? %>
+            <%= image_tag reservation.room.roomimage.variant(resize_to_limit: [114, 76]) %>
+          <% else %>
+            <%= image_tag 'default-myroom.png', width: 114, height: 76 %>
+          <% end %>
+        </td>
+        <td>
+          <%= reservation.room.room_name %>
+        </td>
+        <td>
+          <%= reservation.room.room_details %>
+        </td>
+        <td>
+          <span class="room" data-room-rate="<%= reservation.payment.to_f %>"></span>
+          <span class="convert_rate"><%= reservation.payment %></span>
+        </td>
+        <td>
+          <%= reservation.checkin_day.strftime("%Y/%m/%d")%>
+        </td>
+        <td>
+          <%= reservation.checkout_day.strftime("%Y/%m/%d")%>
+        </td>
+        <td>
+          <%= reservation.confirmed_day.strftime("%Y/%m/%d %H:%M")%>
+        </td>
+        <td>
+           <button class="dotsicon_text" id="dotsicon_text"><span>▼</span></button>
+            <div class="dotsicon_dropmenu" id="dotsicon_dropmenu">
+              <ul>
+                <li><%= link_to "削除",  reservation, method: :delete, data: { confirm: "予約を削除しますか？" } %></li>
+              </ul>
+            </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

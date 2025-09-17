@@ -1,0 +1,36 @@
+<div class="show_wapper_container">
+
+<%= render 'layouts/user_account_menu' %>
+
+<% if flash[:notice] %>
+  <div class="flash_notice" id="flash_notice"><%= flash[:notice] %></div>
+<% end %>
+
+<div class="show_account_container">
+
+  <div class="linkto_top">
+    <%= link_to "← TOPに戻る", root_path %>
+  </div>
+
+  <div class="profile_titlle">
+    <h2>アカウント</h2>
+    </div>
+  
+  <table class="current_user_table">
+    <tbody>
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <td>パスワード</td>
+        <td class="mask_text">********</td>
+      </tr>
+    </tbody>
+  </table>
+
+    <div class="edit_link_button">
+      <%= image_pack_tag 'pencil.svg', alt: '鉛筆マーク', class:'pencil_img'%><%= link_to "アカウント編集", edit_account_user_path(current_user), class:'edit_user_account' %>
+    </div>
+
+</div>

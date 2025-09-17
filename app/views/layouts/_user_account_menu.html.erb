@@ -1,0 +1,8 @@
+<div class="select_user_config">
+  <span>設定</span>
+  <ul>
+    <li><%= link_to "アカウント", show_account_user_path(current_user) %></li>
+    <li><%= link_to "プロフィール", show_profile_user_path(current_user) %></li>
+    <li><%= link_to "退会処理",  user_path(current_user), method: :delete, data: { confirm: "本当に退会しますか？" } %></li>
+  </ul>
+</div>

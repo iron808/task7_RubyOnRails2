@@ -1,0 +1,61 @@
+  <div class="show_account_container">
+  
+    <% if flash[:notice] %>
+      <div class="flash_notice" id="flash_notice"><%= flash[:notice] %></div>
+    <% end %>
+
+    <div class="linkto_top">
+      <%= link_to "← TOPに戻る", root_path %>
+    </div>
+
+    <div class="profile_titlle">
+      <h2>施設一覧</h2>
+    </div>
+    <table class="current_user_roomtable">
+      <thead>
+        <tr>
+          <th>画像</th>
+          <th>施設名</th>
+          <th>施設紹介文</th>
+          <th>料金(1泊)</th>
+          <th>住所</th>
+          <th>作成日時</th>
+          <th>編集</th>
+        </tr>
+      </thead>
+    <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <td>
+            <%= image_tag(room.roomimage.attached? ? room.roomimage.variant(resize_to_limit: [114, 76]) : "default-myroom.png", alt: "施設写真") %>
+          </td>
+          <td>
+            <li><%= link_to room.room_name, show_room_room_path(room), class: 'show_my_facility' %></li>
+          </td>
+          <td>
+            <%= room.room_details %>
+          </td>
+          <td>
+            <span class="room" data-room-rate="<%= room.room_rate.to_f %>"></span>
+            <span class="convert_rate"><%= room.room_rate %></span>
+          </td>
+          <td>
+            <%= room.facility_address %>
+          </td>
+          <td>
+            <%= room.updated_at.strftime("%Y/%m/%d") %>
+          </td>
+          <td>
+            <button class="dotsicon_text" id="dotsicon_text"><span>▼</span></button>
+              <div class="dotsicon_dropmenu" id="dotsicon_dropmenu">
+              <ul>
+                <li><%= link_to "編集", edit_room_room_path(room), class: 'edit_facility' %></li>
+                <li><%= link_to "削除",  room, method: :delete, data: { confirm: "本当に削除しますか？" } %></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

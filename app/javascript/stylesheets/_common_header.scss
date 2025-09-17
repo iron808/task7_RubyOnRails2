@@ -1,0 +1,104 @@
+.header_container{
+  display: flex;
+  padding: 0 75px;
+  height: 100px;
+  align-items: center;
+  position: relative;
+}
+
+.header_title_area h1{
+  font-size: 36px;
+}
+
+.header_logo_img{
+  width: 85px;
+  height: 82px;
+}
+
+.header_color{
+  color: rgb(8, 146, 170);
+}
+
+.header_title_area p{
+  font-size: 8px;
+}
+
+.menu{
+  display: flex;
+  margin-left: auto;
+  height: 100px;
+  text-align: center;
+  align-items: center;
+  gap: 48px;
+}
+
+.header_login_area{
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.header_login_img{
+  width: 35px;
+  height: 35px;
+}
+
+.header_signup_area{
+  background-color: rgb(8, 146, 170);
+  border-radius: 10px;
+  line-height: 30px;
+}
+
+.header_signup_area:hover{
+  cursor: pointer;
+  transform: scale(0.9,0.9);
+  background-color: #ff6105;
+}
+
+.header_signup_area a{
+  color: #ffffff;
+}
+
+.user_menu{
+  border: none;
+  background-color: #f9fffd;
+}
+
+.login_wapper{
+  position: relative;
+  display: flex;
+  margin-left: auto;
+}
+
+.login_dropmenu{
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 30px;
+  height: 100vh;
+  width: 200px;
+  background-color: rgba(72, 74, 74, 0.9);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.login_dropmenu ul{
+  text-align: center;
+}
+
+.login_dropmenu li{
+  padding: 30px;
+}
+
+
+.login_dropmenu a{
+  color: #ffffff !important;
+}
+
+.login_dropmenu.active{
+  display: block;
+}
+
+.login_dropmenu.active :hover{
+  color:  rgb(8, 146, 170) !important;
+}

@@ -1,0 +1,18 @@
+<div class="create_result_view">
+  <div class="create_result_view_warp">
+    <h1>予約が完了しました</h1>
+    <%= image_pack_tag 'diamond.svg', alt: '宝石アイコン', class:'diamond_img'%>
+
+    <p><strong>施設名:</strong> <%= @reservation.room.room_name %></p>
+    <p><strong>チェックイン日:</strong> <%= @reservation.checkin_day %></p>
+    <p><strong>チェックアウト日:</strong> <%= @reservation.checkout_day %></p>
+    <p><strong>人数:</strong> <%= @reservation.number_of_guests %> 人</p>
+    <p><strong>宿泊日数:</strong> <%= @reservation.number_of_night %> 泊</p>
+    <span class="room" data-room-rate="<%= @reservation.payment %>"></span>
+    <span class="convert_rate">お支払い金額:<%= @reservation.payment %></span>
+
+    <p>
+      <%= link_to "トップに戻る", root_path, class: "backtop_button" %>
+    </p>
+  </div>
+<div>

@@ -1,0 +1,96 @@
+<div class="show_wapper_container">
+
+<%= render 'layouts/user_account_menu' %>
+
+<div class="show_account_container">
+
+  <div class="linkto_top">
+    <%= link_to "← TOPに戻る", root_path %>
+  </div>
+
+  <div class="profile_titlle"><h2>施設登録</h2></div>
+  
+    <div class="flash_notice"><%= flash[:alert] %></div>
+
+  <%= form_with model: @room, local: true do |f| %>
+  <table class="current_user_table">
+    <tbody>
+      <tr>
+        <td>
+          <%= f.label :room_name do%>
+            施設名<span class="span_label_deco">※</span>
+          <% end %>
+        </td>
+        <td>
+          <%= f.text_field :room_name %>
+          <% if @room.errors.any? %>
+            <div class="error"><%= @room.errors[:room_name].first %></div>
+          <% end %>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <%= f.label :room_details do %>
+            施設詳細<span class="span_label_deco">※</span>
+          <% end %>
+        </td>
+        <td>
+          <%= f.text_field :room_details  %>
+          <% if @room.errors.any? %>
+            <div class="error"><%= @room.errors[:room_details].first %></div>
+          <% end %>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <%= f.label :room_rate  do %>
+            料金(1泊)<span class="span_label_deco">※</span>
+          <% end %>
+        </td>
+        <td>
+          <%= f.number_field :room_rate %>
+           <% if @room.errors.any? %>
+            <div class="error"><%= @room.errors[:room_rate].first %></div>
+          <% end %>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <%= f.label :facility_address do %>
+            住所<span class="span_label_deco">※</span>
+          <% end %>
+        </td>
+        <td>
+          <%= f.text_field :facility_address %>
+          <% if @room.errors.any? %>
+            <div class="error"><%= @room.errors[:facility_address].first %></div>
+          <% end %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= f.label :roomimage ,"施設画像" %>
+        </td>
+        <td>
+          <%= f.file_field :roomimage %>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="select_item_wapper">
+    <div class="update_user_info">
+      <%= f.submit "保存", class: "update" %>
+    </div>
+    <div class="edit_canncel_button">
+      <div class="canncel"><%= link_to "キャンセル", request.referer %></div>
+    </div>
+  <% end %>
+  </div>
+
+</div>

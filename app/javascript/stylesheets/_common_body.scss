@@ -1,0 +1,292 @@
+body{
+  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
+}
+
+a:link,
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.dotsicon_text{
+  font-size: 4px;
+}
+
+.new_create_container{
+  margin: 50px 110px;
+  display: block;
+  height: 678px;
+  background-color: #E8EBE9;
+  border-radius: 10px;
+}
+
+.announce{
+  align-items: center;
+  text-align: center;
+  padding: 9px;
+}
+
+.announce p{
+  font-size: 36px;
+}
+
+.view_label{
+  padding: 10px 30px;
+}
+
+.input_user_box{
+  width: 100%;
+  height: 45px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.view_label_button{
+  padding: 10px 30px;
+}
+
+.view_new_button,.view_login_button{
+  padding: 10px 30px;
+}
+
+.push_first_button{
+  width: 100%;
+  height: 70px;
+  background-color: #0892AB;
+  color: #ffffff;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition-duration: .3s;
+}
+
+.push_first_button:hover{
+  background-color: #ff6105;
+  transform: scale(0.9,0.9);
+}
+
+.push_secound_button{
+  display: block;
+  width: 100%;
+  height: 70px;
+  background-color: #898989;
+  color: #ffffff !important;
+  text-align: center;
+  line-height: 70px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition-duration: .3s;
+}
+
+.push_secound_button:hover{
+  background-color: #ff6105;
+  transform: scale(0.9,0.9);
+}
+
+.show_wapper_container{
+  position: relative;
+  padding: 33px;
+}
+
+.select_user_config{
+  width: 159px;
+  height: 185px;
+  text-align: center;
+  top: 106px;
+  position: absolute;
+}
+
+.select_user_config span{
+  font-size: 24px;
+}
+
+.select_user_config li{
+  list-style: none;
+  padding: 30px;
+}
+
+.select_user_config li :hover{
+  color: #0892AB !important;
+  transform: scale(0.9,0.9);
+}
+
+.back{
+  margin-top: 50px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  width: 298px;
+  height: 50px;
+  cursor: pointer;
+}
+.back :hover{
+  color: #0892AB !important;
+  transform: scale(0.9,0.9);
+}
+
+.show_account_container{
+  padding: 0 242px;
+  width: auto;
+}
+
+.profile_titlle{
+  display: flex;
+  text-align: center;
+  border-bottom: 3px solid #0892AB;
+  padding-bottom: 3px;
+  width: 100%;
+}
+
+.profile_titlle h2{
+  font-size: 28px;
+}
+
+.current_user_table{
+  font-size: 18px;
+}
+
+.current_user_table td{
+  padding: 15px 15px 15px 0;
+}
+
+.mask_text{
+  letter-spacing: 2px;
+}
+
+.edit_link_button{
+  padding-top: 30px;
+}
+
+.edit_link_button .edit_user_account:hover{
+  color: #0892AB;
+}
+
+.pencil_img{
+  width: 35px;
+  height: 35px;
+}
+
+.span_label_deco{
+  color: #828282;
+  font-size: 10px;
+}
+
+.select_item_wapper{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 0 150px;
+}
+
+.update{
+  background-color: #0892AB;
+  color: #ffffff;
+  border-radius: 8px;
+  width: 298px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+.update_user_info{
+  padding: 10px 0;
+}
+
+.update_user_info :hover{
+  background-color: #ff6105;
+  transform: scale(0.9,0.9);
+}
+
+.edit_canncel_button a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; 
+}
+
+.canncel{
+  display: inline-block;
+  background-color: #ffffff;
+  border-radius: 8px;
+  width: 298px;
+  height: 50px;
+  cursor: pointer;
+  border: 2px solid #898989;
+}
+
+.canncel:hover{
+  transform: scale(0.9,0.9);
+}
+
+.canncel a:hover{
+  color: #0892AB !important;
+}
+
+
+.current_user_roomtable{
+  width: 100%;
+}
+
+td{
+  position: relative;
+}
+
+.dotsicon_text{
+  font-size: 18px;
+}
+
+.dotsicon_dropmenu{
+  position: absolute;
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(72, 74, 74, 0.9);
+  cursor: pointer;
+  border-radius: 5px;
+  width: 70px;
+}
+
+.dotsicon_dropmenu ul{
+  text-align: center;
+}
+
+.dotsicon_dropmenu li a{
+  color: #E8EBE9 !important;
+}
+
+.dotsicon_dropmenu.active{
+  display: block;
+}
+
+.dotsicon_dropmenu.active:hover{
+  color: #0892AB;
+}
+
+.view_back_button{
+  display: inline-block;
+  margin: 15px 75px; 
+  align-items: center; 
+}
+
+.view_back_button a{
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.view_back_button a:hover{
+  color: #0892AB !important;
+}
+
+.linkto_top{
+  padding: 10px 0;
+}
+
+.linkto_top :hover{
+  color: #0892AB !important
+}
+
+

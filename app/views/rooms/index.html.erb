@@ -1,0 +1,64 @@
+<div class="first_view_container">
+
+  <% if flash[:notice] %>
+  <div class="flash_notice" id="flash_notice"><%= flash[:notice] %></div>
+  <% end %>
+
+  <div class="first_view_area">
+    <%= image_pack_tag 'SAYAPAKU4745_TP_V.png', alt: '温泉写真', class:'first_view_img'%>
+  </div>
+
+  <%= form_with url: search_rooms_path, method: :get, local: true do %>
+
+  <div class="search_facility_area">
+    <div class="search_box_common">
+      <%= text_field_tag :area, params[:area], placeholder: "エリア名を入力" ,class:'search_box_area' %>
+    </div>
+    
+    <div class="search_box_common">
+      <%= text_field_tag :query, params[:query], placeholder: "キーワードを入力" ,class:'search_box_area' %>
+    </div>
+    
+    <div class="search_button_common" id="search_button_common">
+      <%= submit_tag "検索", class: "search-button" %>
+    </div>
+  </div>
+
+<% end %>
+
+</div>
+
+<div class="main_view_container">
+  <p>おすすめの宿泊エリア</p>
+</div>
+
+<div class="map_img_container">
+
+  <div class="japan_img_box">
+    <a><%= image_pack_tag 'location.svg', alt: '地点アイコン', class:'location' %>東京 Tokyo</a>
+    <%= link_to search_rooms_path(area: '東京') do %>
+      <%= image_pack_tag 'skytree-04_TP_V.png', alt: '東京写真', class:'japan_img'%>
+    <% end %>
+  </div>
+
+  <div class="japan_img_box">
+    <a><%= image_pack_tag 'location.svg', alt: '地点アイコン', class:'location'%>大阪 Osaka</a>
+    <%= link_to search_rooms_path(area: '大阪') do %>
+      <%= image_pack_tag 'osaka.png', alt: '大阪写真', class:'japan_img'%>
+    <% end %>
+  </div>
+
+  <div class="japan_img_box">
+    <a><%= image_pack_tag 'location.svg', alt: '地点アイコン', class:'location'%>京都 Kyoto</a>
+    <%= link_to search_rooms_path(area: '京都') do %>
+      <%= image_pack_tag 'byoudouinjpg.png', alt: '京都写真', class:'japan_img'%>
+    <% end %>
+  </div>
+
+  <div class="japan_img_box">
+    <a><%= image_pack_tag 'location.svg', alt: '地点アイコン', class:'location'%>札幌 Saporo</a>
+    <%= link_to search_rooms_path(area: '札幌') do %>
+      <%= image_pack_tag 'hokaido.png', alt: '札幌写真', class:'japan_img'%>
+    <% end %>
+  </div>
+</div>

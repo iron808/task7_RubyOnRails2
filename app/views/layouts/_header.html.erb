@@ -1,0 +1,43 @@
+<header>
+  <div class="header_container">
+    <div class="header_logo_area"><%= link_to root_path do %><%= image_pack_tag 'airplane.png', alt: 'ロゴ', class:'header_logo_img'%><% end %></div>
+    <div class="header_title_area"><%= link_to root_path do %><h1>Let'<span class="header_color">s</span>Trip</h1><br><p>宿泊マッチングサービスなら</p><% end %></div>
+  
+  <% if logged_in? %>
+  <div class="login_wapper">
+
+  <div class="avatar_container">
+
+  <%= image_tag(
+    current_user&.avatar&.attached? ? 
+      url_for(current_user.avatar.variant(resize_to_limit: [157, 157])) + "?#{current_user.updated_at.to_i}" : 
+      "default-myicon.png",
+    alt: "マイアイコン",
+    size: "20x20"
+  ) %>
+
+  </div>
+  
+    <div class="user_name_box">
+      <button id="user_menu" class="user_menu"><%= current_user.user_name %> さん▼</button>
+    </div>
+
+    <div class="login_dropmenu" id="login_dropmenu">
+      <ul>
+        <li><%= link_to "施設登録", new_room_path, class: 'add_facility' %></li>
+        <li><%= link_to "施設一覧", show_user_facility_room_path(current_user), class: 'view_facility' %></li>
+        <li><%= link_to "予約施設一覧", show_user_reservations_user_path(current_user), class: 'view_facility' %></li>
+        <li><%= link_to "アカウント設定", show_account_user_path(current_user), class: 'user_account' %></li>
+        <li><%= link_to "ログアウト", logout_path, method: :delete, class: 'logout_button' %></li>
+      </ul>
+    </div>
+  </div>
+  <% else %>
+  <div class="menu">
+    <div class="header_login_area">
+      <%= image_pack_tag 'login.png', alt: 'ログイン', class:'header_login_img'%><%= link_to "ログイン", login_path, class:'guest_login' %></div>
+    <div class="header_signup_area"><p><%= link_to "新規登録", :new_user %></p></div>
+  </div>
+  <% end %>
+  </div>
+</header>

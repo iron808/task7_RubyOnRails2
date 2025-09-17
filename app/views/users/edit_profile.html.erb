@@ -1,0 +1,50 @@
+<div class="show_wapper_container">
+
+<%= render 'layouts/user_account_menu' %>
+
+<div class="show_account_container">
+  
+  <div class="profile_titlle"><h2>プロフィール</h2></div>
+  
+    <div class="flash_notice"><%= flash[:alert] %></div>
+
+  <%= form_with model: @user, url: update_profile_user_path(@user), local: true , multipart: true do |f| %>
+  <table class="current_user_table">
+    <tbody>
+      <tr>
+        <td><%= f.label :avatar ,"マイアイコン" %></td>
+        <td>
+          <% if @user.avatar.attached? %>
+            <%= image_tag @user.avatar.variant(resize_to_limit: [157, 157]) %><br>
+          <% end %>
+        </td>
+        <td>
+          <%= f.file_field :avatar %>
+        </td>
+      </tr>
+      
+      <tr>
+        <td><%= f.label :user_name ,"名前" %></td>
+        <td><%= f.text_field :user_name  %></td>
+      </tr>
+      
+      <tr>
+        <td><%= f.label :user_introduce ,"自己紹介" %></td>
+        <td><%= f.text_field :user_introduce  %></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="select_item_wapper">
+    <div class="update_user_info">
+      <button class="update">保存</button>
+    </div>
+ <% end %>
+  <div class="edit_canncel_button">
+      <button class="canncel"><%= link_to "キャンセル", show_profile_user_path(current_user) %></button>
+  </div>
+
+  </div>
+
+</div>
